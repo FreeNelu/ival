@@ -1,5 +1,5 @@
-.expo/*
-node_modules/*
+node_modules
+.expo
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
