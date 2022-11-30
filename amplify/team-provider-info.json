@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-travaux-staging-105314-authRole",
+      "UnauthRoleArn": "arn:aws:iam::285006022738:role/amplify-travaux-staging-105314-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::285006022738:role/amplify-travaux-staging-105314-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-travaux-staging-105314-deployment",
+      "UnauthRoleName": "amplify-travaux-staging-105314-unauthRole",
+      "StackName": "amplify-travaux-staging-105314",
+      "StackId": "arn:aws:cloudformation:eu-west-3:285006022738:stack/amplify-travaux-staging-105314/30823750-709d-11ed-8415-0a91612e224a",
+      "AmplifyAppId": "d3t4jo3ehk7hp3"
+    },
+    "categories": {
+      "auth": {
+        "Travaux": {}
+      }
+    }
+  }
+}
