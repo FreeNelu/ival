@@ -22,10 +22,6 @@ const SignOutButton = () => {
   const { signOut } = useAuthenticator();
   return <Button onPress={signOut} title="Sign Out" />;
 };
-const Welcome = () => {
-  const { user } = useAuthenticator();
-  return <h1>Hello {user.username}</h1>;
-};
 
 const App = () => {
   const isLoadingComplete = useCachedResources();
@@ -36,9 +32,8 @@ const App = () => {
   } else {
     return (
       <SafeAreaProvider>
-        <Welcome />
-        <SignOutButton />
         <Navigation colorScheme={colorScheme} />
+        <SignOutButton />
         <StatusBar />
       </SafeAreaProvider>
     );
