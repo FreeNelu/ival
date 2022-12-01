@@ -1,22 +1,19 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Button } from "react-native";
+import Navigation from "./navigation";
 
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import React from "react";
-import Navigation from "./navigation";
-import { Amplify, I18n } from "aws-amplify";
+
+import { Amplify } from "aws-amplify";
+import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react-native";
+
 import config from "./src/aws-exports";
 import { signUpConfig } from "./src/signUpConfig";
 
-import {
-  withAuthenticator,
-  useAuthenticator,
-} from "@aws-amplify/ui-react-native";
-import { Button } from "react-native";
-
 Amplify.configure(config);
-I18n.setLanguage("fr");
 
 const SignOutButton = () => {
   const { signOut } = useAuthenticator();
@@ -31,13 +28,17 @@ const App = () => {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <SignOutButton />
-        <StatusBar />
-      </SafeAreaProvider>
+      <Authenticator.Provider>
+        <Authenticator>
+          <SafeAreaProvider>
+            <Navigation colorScheme={colorScheme} />
+            <SignOutButton />
+            <StatusBar />
+          </SafeAreaProvider>{" "}
+        </Authenticator>
+      </Authenticator.Provider>
     );
   }
 };
 
-export default withAuthenticator(App);
+export default App;
