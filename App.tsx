@@ -5,10 +5,9 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import React from "react";
 import Navigation from "./navigation";
-import { Amplify } from "aws-amplify";
+import { Amplify, I18n } from "aws-amplify";
 import config from "./src/aws-exports";
 import { signUpConfig } from "./src/signUpConfig";
-import { I18n } from "aws-amplify";
 
 import {
   withAuthenticator,
@@ -23,6 +22,10 @@ const SignOutButton = () => {
   const { signOut } = useAuthenticator();
   return <Button onPress={signOut} title="Sign Out" />;
 };
+const Welcome = () => {
+  const { user } = useAuthenticator();
+  return <h1>Hello {user.username}</h1>;
+};
 
 const App = () => {
   const isLoadingComplete = useCachedResources();
@@ -33,6 +36,7 @@ const App = () => {
   } else {
     return (
       <SafeAreaProvider>
+        <Welcome />
         <SignOutButton />
         <Navigation colorScheme={colorScheme} />
         <StatusBar />

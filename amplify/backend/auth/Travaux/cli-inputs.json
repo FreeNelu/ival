@@ -3,7 +3,7 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "travau18025015",
+    "resourceNameTruncated": "travau042b26d8",
     "userPoolName": "Travaux",
     "autoVerifiedAttributes": [
       "email"
@@ -14,29 +14,30 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "IVAL - Verification Code",
-    "emailVerificationMessage": "Hi!\nYour verification code is {####}.\n\nIf you have any questions, send us an email at mail@temporar.com.\n\nThe IVAL team",
+    "emailVerificationSubject": "Verification code: {####}",
+    "emailVerificationMessage": "Verification code: {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [
       "Requires Lowercase",
-      "Requires Numbers"
+      "Requires Numbers",
+      "Requires Symbols",
+      "Requires Uppercase"
     ],
     "requiredAttributes": [
       "email",
-      "name",
-      "phone_number",
       "birthdate",
-      "address"
+      "phone_number",
+      "name"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "Travau18025015_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "Travau042b26d8_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "18025015",
+    "sharedId": "042b26d8",
     "resourceName": "Travaux",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",

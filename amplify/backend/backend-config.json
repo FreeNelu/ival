@@ -10,16 +10,17 @@
         "usernameAttributes": [],
         "signupAttributes": [
           "EMAIL",
-          "NAME",
-          "PHONE_NUMBER",
           "BIRTHDATE",
-          "ADDRESS"
+          "PHONE_NUMBER",
+          "NAME"
         ],
         "passwordProtectionSettings": {
           "passwordPolicyMinLength": 8,
           "passwordPolicyCharacters": [
             "REQUIRES_LOWERCASE",
-            "REQUIRES_NUMBERS"
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
           ]
         },
         "mfaConfiguration": "OFF",
