@@ -1,6 +1,5 @@
 import React from "react";
 import Navigation from "../navigation";
-import { styles } from "./Home.styles";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Button } from "react-native";
