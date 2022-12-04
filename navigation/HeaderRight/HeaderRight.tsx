@@ -22,7 +22,7 @@ const HeaderRight = () => {
           <MaterialIcons
             name="logout"
             size={32}
-            color={Colors[colorScheme].text}
+            color={Colors[colorScheme].cardText}
             style={{ marginRight: 24 }}
           />
         }
@@ -39,7 +39,7 @@ const HeaderRight = () => {
           <MaterialIcons
             name="info-outline"
             size={32}
-            color={Colors[colorScheme].text}
+            color={Colors[colorScheme].cardText}
             style={{ marginRight: 24 }}
           />
         }

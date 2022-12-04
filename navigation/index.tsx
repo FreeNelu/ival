@@ -65,6 +65,10 @@ const BottomTabNavigator = () => {
         tabBarStyle: {
           borderTopWidth: 1,
         },
+        headerTitleStyle: {
+          color: "white",
+          fontSize: 24,
+        },
       }}
     >
       <BottomTab.Screen
