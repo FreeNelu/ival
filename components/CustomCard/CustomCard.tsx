@@ -1,39 +1,59 @@
 import React from "react";
-import { Card, Text } from "@rneui/themed";
-import { ImageBackground, Pressable, useWindowDimensions } from "react-native";
+import { Text } from "@rneui/themed";
+import {
+  ImageBackground,
+  Pressable,
+  StyleProp,
+  View,
+  ViewStyle,
+} from "react-native";
 import styles from "./CustomCard.styles";
+import useColorScheme from "../../hooks/useColorScheme";
+import Colors from "../../constants/Colors";
 
 type CustomCardProps = {
+  style?: StyleProp<ViewStyle>;
   title: string;
   description?: string;
-  imageSource: { uri: string };
-  widthPercent: number;
+  imageSource: any;
+  width: number;
+  height: number;
   onPress: () => void;
 };
 
 const CustomCard = (props: CustomCardProps) => {
-  const { title, description, onPress, widthPercent, imageSource } = props;
-  const { height, width } = useWindowDimensions();
-  const cardWidth = Math.max(height, width) * widthPercent;
-  const cardHeight = cardWidth * (294 / 425);
+  const { style, title, description, onPress, width, height, imageSource } =
+    props;
+  const colorScheme = useColorScheme();
 
   return (
-    <Pressable onPress={onPress}>
-      <ImageBackground source={imageSource} imageStyle={styles.Image}>
-        <Card
-          containerStyle={[
-            styles.Card,
-            { width: cardWidth, height: cardHeight },
-          ]}
-        >
-          <Card.Title style={styles.Title}>{title}</Card.Title>
+    <Pressable onPress={onPress} style={style}>
+      <ImageBackground
+        source={imageSource}
+        imageStyle={styles.Image}
+        blurRadius={8}
+      >
+        <View style={styles.Shadow} />
+        <View style={[styles.Card, { width: width, height: height }]}>
           {description && (
             <>
-              <Card.Divider />
-              <Text style={{ marginBottom: 10 }}>{description}</Text>
+              <Text
+                style={[
+                  styles.Description,
+                  { color: Colors[colorScheme].cardDescription },
+                ]}
+              >
+                {description}
+              </Text>
             </>
           )}
-        </Card>
+          <Text
+            h1
+            style={[styles.Title, { color: Colors[colorScheme].cardText }]}
+          >
+            {title}
+          </Text>
+        </View>
       </ImageBackground>
     </Pressable>
   );

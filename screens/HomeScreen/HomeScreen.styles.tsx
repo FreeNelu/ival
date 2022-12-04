@@ -1,20 +1,16 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
+  Container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
+  CardContainer: {
+    flexWrap: "wrap",
+    flexDirection: "row",
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-  },
+  Card: { marginTop: 16, marginBottom: 16 },
 });
 
 export default styles;

@@ -1,12 +1,12 @@
 import { useAuthenticator } from "@aws-amplify/ui-react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import IconPressable from "../../components/IconPressable";
 import useColorScheme from "../../hooks/useColorScheme";
 import styles from "./HeaderRight.styles";
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
+import Colors from "../../constants/Colors";
 
 const HeaderRight = () => {
   const { signOut } = useAuthenticator();
