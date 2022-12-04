@@ -1,26 +1,24 @@
-import { MaterialIcons } from "@expo/vector-icons";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme,
 } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
-import IconPressable from "../components/IconPressable";
+import { ColorSchemeName } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import TabOneScreen from "../screens/TabOneScreen";
+import HomeScreen from "../screens/HomeScreen/HomeScreen";
+import ChatScreen from "../screens/ChatScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
-import {
-  RootStackParamList,
-  RootTabParamList,
-  RootTabScreenProps,
-} from "../types";
+import { RootStackParamList, RootTabParamList } from "../types";
+import HeaderRight from "./HeaderRight/HeaderRight";
 import LinkingConfiguration from "./LinkingConfiguration";
 
 export default function Navigation({
@@ -67,62 +65,63 @@ const BottomTabNavigator = () => {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
     >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="tab" color={color} />,
-          headerRight: () => (
-            <>
-              <IconPressable
-                title="Sign out"
-                onPress={() => {}}
-                icon={
-                  <MaterialIcons
-                    name="logout"
-                    size={32}
-                    color={Colors[colorScheme].text}
-                    style={{ marginRight: 16 }}
-                  />
-                }
-              />
-              <IconPressable
-                title="Help"
-                onPress={() => navigation.navigate("Modal")}
-                icon={
-                  <MaterialIcons
-                    name="info-outline"
-                    size={32}
-                    color={Colors[colorScheme].text}
-                    style={{ marginRight: 16 }}
-                  />
-                }
-              />
-            </>
+        name="Home"
+        component={HomeScreen}
+        options={{
+          title: "Accueil",
+          tabBarIcon: ({ color }) => (
+            <AntDesign
+              size={32}
+              style={styles.TabIcon}
+              color={color}
+              name="home"
+            />
           ),
-        })}
+          headerRight: () => <HeaderRight />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{
+          title: "Messagerie",
+          tabBarIcon: ({ color }) => (
+            <Ionicons
+              size={32}
+              style={styles.TabIcon}
+              color={color}
+              name="chatbox-ellipses-outline"
+            />
+          ),
+          headerRight: () => <HeaderRight />,
+        }}
       />
       <BottomTab.Screen
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="tab" color={color} />,
+          title: "Test",
+          tabBarIcon: ({ color }) => (
+            <AntDesign
+              size={32}
+              style={styles.TabIcon}
+              color={color}
+              name="minussquareo"
+            />
+          ),
+          headerRight: () => <HeaderRight />,
         }}
       />
     </BottomTab.Navigator>
   );
 };
 
-const TabBarIcon = (props: {
-  name: React.ComponentProps<typeof MaterialIcons>["name"];
-  color: string;
-}) => {
-  return <MaterialIcons size={30} style={{ marginBottom: -3 }} {...props} />;
-};
+const styles = StyleSheet.create({
+  TabIcon: { marginLeft: -4, marginBottom: 4 },
+});

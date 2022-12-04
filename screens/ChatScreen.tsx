@@ -1,16 +1,13 @@
-import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { Text } from "@rneui/themed";
-import React from "react";
+import { RootTabScreenProps } from "../types";
 
-export default function ModalScreen() {
+export default function ChatScreen({ navigation }: RootTabScreenProps<"Chat">) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
+      <Text style={styles.title}>Messagerie</Text>
       <View style={styles.separator} />
-
-      <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
     </View>
   );
 }

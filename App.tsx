@@ -3,10 +3,13 @@ import React from "react";
 import { Amplify } from "aws-amplify";
 import { Authenticator } from "@aws-amplify/ui-react-native";
 import config from "./src/aws-exports";
-import { signUpConfig } from "./src/signUpConfig";
-import Home from "./src/Home";
+import { I18n } from "aws-amplify";
+import { translations } from "@aws-amplify/ui";
+import NavigationWrapper from "./src/NavigationWrapper";
 
 Amplify.configure(config);
+I18n.putVocabularies(translations);
+I18n.setLanguage("fr");
 
 const App = () => {
   const isLoadingComplete = useCachedResources();
@@ -16,7 +19,7 @@ const App = () => {
     return (
       <Authenticator.Provider>
         <Authenticator>
-          <Home />
+          <NavigationWrapper />
         </Authenticator>
       </Authenticator.Provider>
     );
