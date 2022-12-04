@@ -1,26 +1,27 @@
 import React from "react";
-import { SafeAreaView, useWindowDimensions, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  useWindowDimensions,
+  View,
+} from "react-native";
 import CustomCard from "../../components/CustomCard/CustomCard";
 import { RootTabScreenProps } from "../../types";
 import styles from "./HomeScreen.styles";
 
 export default function HomeScreen({ navigation }: RootTabScreenProps<"Home">) {
   const { height, width } = useWindowDimensions();
-  const cardWidth = Math.max(height, width) * 0.4;
+  const isHorizontal = width > height;
+  const cardWidth = width * (isHorizontal ? 0.4 : 0.75);
   const cardHeight = cardWidth * (1 / 1.75);
   const chantierImg = require("../../assets/images/chantiers-img.jpg");
   const equipesImg = require("../../assets/images/equipes-img.png");
   const materielImg = require("../../assets/images/materiel-img.jpg");
   const materiauxImg = require("../../assets/images/materiaux-img.png");
 
-  return (
-    <SafeAreaView style={styles.Container}>
-      <View
-        style={[
-          styles.CardContainer,
-          { justifyContent: width < height ? "center" : "space-evenly" },
-        ]}
-      >
+  const Cards = () => {
+    return (
+      <>
         <CustomCard
           style={styles.Card}
           onPress={() => {}}
@@ -55,7 +56,25 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<"Home">) {
           height={cardHeight}
           imageSource={materiauxImg}
         />
-      </View>
+      </>
+    );
+  };
+
+  return (
+    <SafeAreaView style={styles.Container}>
+      {isHorizontal ? (
+        <View style={styles.CardContainer}>
+          <Cards />
+        </View>
+      ) : (
+        <ScrollView
+          contentContainerStyle={styles.CardContainer}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        >
+          <Cards />
+        </ScrollView>
+      )}
     </SafeAreaView>
   );
 }

@@ -1,11 +1,7 @@
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from "@react-navigation/native";
-import { ImageBackground, StyleSheet } from "react-native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName } from "react-native";
@@ -21,16 +17,9 @@ import { RootStackParamList, RootTabParamList } from "../types";
 import HeaderRight from "./HeaderRight/HeaderRight";
 import LinkingConfiguration from "./LinkingConfiguration";
 
-export default function Navigation({
-  colorScheme,
-}: {
-  colorScheme: ColorSchemeName;
-}) {
+export default function Navigation() {
   return (
-    <NavigationContainer
-      linking={LinkingConfiguration}
-      theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-    >
+    <NavigationContainer linking={LinkingConfiguration}>
       <RootNavigator />
     </NavigationContainer>
   );
