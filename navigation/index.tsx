@@ -1,10 +1,9 @@
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -57,6 +56,15 @@ const BottomTabNavigator = () => {
       initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        headerStyle: {
+          borderBottomStartRadius: 24,
+          borderBottomEndRadius: 24,
+          backgroundColor: Colors[colorScheme].accent,
+          shadowRadius: 6,
+        },
+        tabBarStyle: {
+          borderTopWidth: 1,
+        },
       }}
     >
       <BottomTab.Screen

@@ -1,24 +1,24 @@
-const tintColorLight = "#2f95dc";
-const tintColorDark = "#b7e1ff";
-const cardDescriptionColor = "#b7e1ff";
+const accentColor = "#dea731";
 
 export default {
   light: {
     text: "#000",
+    accent: accentColor,
     cardText: "#fff",
-    cardDescription: cardDescriptionColor,
+    cardDescription: accentColor,
     background: "#fff",
-    tint: tintColorLight,
+    tint: accentColor,
     tabIconDefault: "#ccc",
-    tabIconSelected: tintColorLight,
+    tabIconSelected: accentColor,
   },
   dark: {
     text: "#fff",
+    accent: accentColor,
     cardText: "#fff",
-    cardDescription: cardDescriptionColor,
+    cardDescription: accentColor,
     background: "#000",
-    tint: tintColorDark,
+    tint: accentColor,
     tabIconDefault: "#ccc",
-    tabIconSelected: tintColorDark,
+    tabIconSelected: accentColor,
   },
 };
