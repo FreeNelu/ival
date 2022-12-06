@@ -17,27 +17,28 @@ const linking: LinkingOptions<RootStackParamList> = {
         screens: {
           Home: {
             screens: {
-              HomeScreen: "one",
+              HomeScreen: "1",
+              ChantierScreen: "1.1",
             },
           },
           Chat: {
             screens: {
-              ChatScreen: "two",
+              ChatScreen: "2",
             },
           },
           General: {
             screens: {
-              GeneralScreen: "three",
+              GeneralScreen: "3",
             },
           },
           Notification: {
             screens: {
-              Notification: "four",
+              Notification: "4",
             },
           },
           Publication: {
             screens: {
-              Publication: "five",
+              Publication: "5",
             },
           },
         },
