@@ -1,8 +1,8 @@
-import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Icon } from "@rneui/themed";
 import * as React from "react";
 
 import Colors from "../constants/Colors";
@@ -11,7 +11,9 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import ChatScreen from "../screens/ChatScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
+import NotificationScreen from "../screens/NotificationScreen";
+import GeneralScreen from "../screens/GeneralScreen";
+import PublicationScreen from "../screens/PublicationScreen";
 import { RootStackParamList, RootTabParamList } from "../types";
 import HeaderRight from "./HeaderRight/HeaderRight";
 import LinkingConfiguration from "./LinkingConfiguration";
@@ -76,9 +78,11 @@ const BottomTabNavigator = () => {
         component={HomeScreen}
         options={{
           title: "Accueil",
+          tabBarLabelStyle: styles.TabLabel,
           tabBarIcon: ({ color }) => (
-            <AntDesign
-              size={32}
+            <Icon
+              size={36}
+              type={"antdesign"}
               style={styles.TabIcon}
               color={color}
               name="home"
@@ -92,9 +96,11 @@ const BottomTabNavigator = () => {
         component={ChatScreen}
         options={{
           title: "Messagerie",
+          tabBarLabelStyle: styles.TabLabel,
           tabBarIcon: ({ color }) => (
-            <Ionicons
-              size={32}
+            <Icon
+              size={36}
+              type={"ionicon"}
               style={styles.TabIcon}
               color={color}
               name="chatbox-ellipses-outline"
@@ -104,16 +110,57 @@ const BottomTabNavigator = () => {
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="General"
+        component={GeneralScreen}
         options={{
-          title: "Test",
+          title: "Generales",
+          tabBarIcon: ({ focused }) => (
+            <Icon
+              reverse={focused}
+              raised={!focused}
+              size={36}
+              type={"font-awesome-5"}
+              style={styles.LogoIcon}
+              color={Colors[colorScheme].accent}
+              name="info"
+            />
+          ),
+          headerRight: () => <HeaderRight />,
+          tabBarLabel: "",
+          tabBarItemStyle: styles.LogoContainer,
+        }}
+      />
+      <BottomTab.Screen
+        name="Notification"
+        component={NotificationScreen}
+        options={{
+          title: "Notification",
+          tabBarLabelStyle: styles.TabLabel,
           tabBarIcon: ({ color }) => (
-            <AntDesign
-              size={32}
+            <Icon
+              size={36}
+              type={"ionicon"}
               style={styles.TabIcon}
               color={color}
-              name="minussquareo"
+              name="notifications-outline"
+            />
+          ),
+          headerRight: () => <HeaderRight />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Publication"
+        component={PublicationScreen}
+        options={{
+          title: "Publication",
+          tabBarLabelStyle: styles.TabLabel,
+          tabBarIcon: ({ color }) => (
+            <Icon
+              size={36}
+              type={"antdesign"}
+              style={styles.TabIcon}
+              color={color}
+              name="book"
             />
           ),
           headerRight: () => <HeaderRight />,
@@ -124,5 +171,8 @@ const BottomTabNavigator = () => {
 };
 
 const styles = StyleSheet.create({
-  TabIcon: { marginLeft: -4, marginBottom: 4 },
+  TabIcon: { width: 36 },
+  TabLabel: { fontSize: 18 },
+  LogoIcon: { width: 48 },
+  LogoContainer: { marginLeft: 18, marginBottom: 36 },
 });

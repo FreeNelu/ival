@@ -2,10 +2,10 @@ import { StyleSheet, View } from "react-native";
 
 import { Text } from "@rneui/themed";
 
-export default function TabTwoScreen() {
+export default function NotificationScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
+      <Text style={styles.title}>Notification</Text>
       <View style={styles.separator} />
     </View>
   );

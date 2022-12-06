@@ -25,9 +25,19 @@ const linking: LinkingOptions<RootStackParamList> = {
               ChatScreen: "two",
             },
           },
-          TabTwo: {
+          General: {
             screens: {
-              TabTwoScreen: "three",
+              GeneralScreen: "three",
+            },
+          },
+          Notification: {
+            screens: {
+              Notification: "four",
+            },
+          },
+          Publication: {
+            screens: {
+              Publication: "five",
             },
           },
         },
