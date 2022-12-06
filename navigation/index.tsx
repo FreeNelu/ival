@@ -16,11 +16,10 @@ import GeneralScreen from "../screens/GeneralScreen";
 import PublicationScreen from "../screens/PublicationScreen";
 import { RootStackParamList, RootTabParamList } from "../types";
 import HeaderRight from "./HeaderRight/HeaderRight";
-import LinkingConfiguration from "./LinkingConfiguration";
 
 export default function Navigation() {
   return (
-    <NavigationContainer linking={LinkingConfiguration}>
+    <NavigationContainer>
       <RootNavigator />
     </NavigationContainer>
   );
