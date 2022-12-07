@@ -9,13 +9,14 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import HomeScreen from "../screens/HomeScreen/HomeScreen";
+import WelcomeScreen from "../screens/WelcomeScreen/WelcomeScreen";
 import ChatScreen from "../screens/ChatScreen";
 import NotificationScreen from "../screens/NotificationScreen";
 import GeneralScreen from "../screens/GeneralScreen";
 import PublicationScreen from "../screens/PublicationScreen";
 import { RootStackParamList, RootTabParamList } from "../types";
 import HeaderRight from "./HeaderRight/HeaderRight";
+import SiteScreen from "../screens/WelcomeScreen/SiteScreen/SiteScreen";
 
 export default function Navigation() {
   return (
@@ -28,8 +29,22 @@ export default function Navigation() {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
+  const colorScheme = useColorScheme();
+
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: Colors[colorScheme].accent,
+        },
+        headerTitleStyle: {
+          color: "white",
+          fontSize: 24,
+        },
+        headerBackTitle: "Retour",
+        headerTintColor: Colors[colorScheme].text,
+      }}
+    >
       <Stack.Screen
         name="Root"
         component={BottomTabNavigator}
@@ -43,6 +58,11 @@ const RootNavigator = () => {
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
+      <Stack.Screen
+        name="Site"
+        component={SiteScreen}
+        options={{ title: "Chantiers" }}
+      />
     </Stack.Navigator>
   );
 };
@@ -54,27 +74,24 @@ const BottomTabNavigator = () => {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Welcome"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
         headerStyle: {
-          borderBottomStartRadius: 24,
-          borderBottomEndRadius: 24,
           backgroundColor: Colors[colorScheme].accent,
-          shadowRadius: 6,
-        },
-        tabBarStyle: {
-          borderTopWidth: 1,
         },
         headerTitleStyle: {
           color: "white",
           fontSize: 24,
         },
+        tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarStyle: {
+          borderTopWidth: 1,
+        },
       }}
     >
       <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Welcome"
+        component={WelcomeScreen}
         options={{
           title: "Accueil",
           tabBarLabelStyle: styles.TabLabel,
