@@ -38,11 +38,11 @@ const RootNavigator = () => {
           backgroundColor: Colors[colorScheme].accent,
         },
         headerTitleStyle: {
-          color: "white",
+          color: Colors[colorScheme].cardText,
           fontSize: 24,
         },
         headerBackTitle: "Retour",
-        headerTintColor: Colors[colorScheme].text,
+        headerTintColor: Colors[colorScheme].cardText,
       }}
     >
       <Stack.Screen
@@ -80,7 +80,7 @@ const BottomTabNavigator = () => {
           backgroundColor: Colors[colorScheme].accent,
         },
         headerTitleStyle: {
-          color: "white",
+          color: Colors[colorScheme].cardText,
           fontSize: 24,
         },
         tabBarActiveTintColor: Colors[colorScheme].tint,
