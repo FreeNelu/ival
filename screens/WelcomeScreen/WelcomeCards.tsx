@@ -1,5 +1,5 @@
 import React from "react";
-import CustomCard from "../../components/CustomCard/CustomCard";
+import ImageCard from "../../components/ImageCard/ImageCard";
 import { useNavigation } from "@react-navigation/native";
 import { useWindowDimensions } from "react-native";
 import styles from "./WelcomeScreen.styles";
@@ -17,7 +17,7 @@ const WelcomeCards = () => {
 
   return (
     <>
-      <CustomCard
+      <ImageCard
         style={styles.Card}
         onPress={() => {
           navigation.navigate("Site");
@@ -28,7 +28,7 @@ const WelcomeCards = () => {
         height={cardHeight}
         imageSource={chantierImg}
       />
-      <CustomCard
+      <ImageCard
         style={styles.Card}
         onPress={() => {}}
         title={"Équipes"}
@@ -37,7 +37,7 @@ const WelcomeCards = () => {
         height={cardHeight}
         imageSource={equipesImg}
       />
-      <CustomCard
+      <ImageCard
         style={styles.Card}
         onPress={() => {}}
         title={"Matériel"}
@@ -45,7 +45,7 @@ const WelcomeCards = () => {
         height={cardHeight}
         imageSource={materielImg}
       />
-      <CustomCard
+      <ImageCard
         style={styles.Card}
         onPress={() => {}}
         title={"Matériaux"}

@@ -7,7 +7,7 @@ import {
   View,
   ViewStyle,
 } from "react-native";
-import styles from "./CustomCard.styles";
+import styles from "./ImageCard.styles";
 import useColorScheme from "../../hooks/useColorScheme";
 import Colors from "../../constants/Colors";
 
@@ -21,7 +21,7 @@ type CustomCardProps = {
   onPress: () => void;
 };
 
-const CustomCard = (props: CustomCardProps) => {
+const ImageCard = (props: CustomCardProps) => {
   const { style, title, description, onPress, width, height, imageSource } =
     props;
   const colorScheme = useColorScheme();
@@ -59,4 +59,4 @@ const CustomCard = (props: CustomCardProps) => {
   );
 };
 
-export default CustomCard;
+export default ImageCard;

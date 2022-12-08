@@ -17,6 +17,7 @@ import PublicationScreen from "../screens/PublicationScreen";
 import { RootStackParamList, RootTabParamList } from "../types";
 import HeaderRight from "./HeaderRight/HeaderRight";
 import SiteScreen from "../screens/WelcomeScreen/SiteScreen/SiteScreen";
+import Layout from "../constants/Layout";
 
 export default function Navigation() {
   return (
@@ -41,7 +42,7 @@ const RootNavigator = () => {
           color: Colors[colorScheme].cardText,
           fontSize: 24,
         },
-        headerBackTitle: "Retour",
+        headerBackTitle: "",
         headerTintColor: Colors[colorScheme].cardText,
       }}
     >
@@ -93,7 +94,7 @@ const BottomTabNavigator = () => {
         name="Welcome"
         component={WelcomeScreen}
         options={{
-          title: "Accueil",
+          title: Layout.isTablet() ? "Accueil" : "",
           tabBarLabelStyle: styles.TabLabel,
           tabBarIcon: ({ color }) => (
             <Icon
@@ -111,7 +112,7 @@ const BottomTabNavigator = () => {
         name="Chat"
         component={ChatScreen}
         options={{
-          title: "Messagerie",
+          title: Layout.isTablet() ? "Messagerie" : "",
           tabBarLabelStyle: styles.TabLabel,
           tabBarIcon: ({ color }) => (
             <Icon
@@ -147,28 +148,10 @@ const BottomTabNavigator = () => {
         }}
       />
       <BottomTab.Screen
-        name="Notification"
-        component={NotificationScreen}
-        options={{
-          title: "Notification",
-          tabBarLabelStyle: styles.TabLabel,
-          tabBarIcon: ({ color }) => (
-            <Icon
-              size={36}
-              type={"ionicon"}
-              style={styles.TabIcon}
-              color={color}
-              name="notifications-outline"
-            />
-          ),
-          headerRight: () => <HeaderRight />,
-        }}
-      />
-      <BottomTab.Screen
         name="Publication"
         component={PublicationScreen}
         options={{
-          title: "Publication",
+          title: Layout.isTablet() ? "Publication" : "",
           tabBarLabelStyle: styles.TabLabel,
           tabBarIcon: ({ color }) => (
             <Icon
@@ -182,13 +165,31 @@ const BottomTabNavigator = () => {
           headerRight: () => <HeaderRight />,
         }}
       />
+      <BottomTab.Screen
+        name="Notification"
+        component={NotificationScreen}
+        options={{
+          title: Layout.isTablet() ? "Notification" : "",
+          tabBarLabelStyle: styles.TabLabel,
+          tabBarIcon: ({ color }) => (
+            <Icon
+              size={36}
+              type={"ionicon"}
+              style={styles.TabIcon}
+              color={color}
+              name="notifications-outline"
+            />
+          ),
+          headerRight: () => <HeaderRight />,
+        }}
+      />
     </BottomTab.Navigator>
   );
 };
 
 const styles = StyleSheet.create({
-  TabIcon: { width: 36 },
-  TabLabel: { fontSize: 18 },
+  TabIcon: { width: 36, height: 36, marginTop: 8 },
+  TabLabel: { fontSize: 18, marginTop: 8 },
   LogoIcon: { width: 48 },
   LogoContainer: { marginLeft: 18, marginBottom: 36 },
 });

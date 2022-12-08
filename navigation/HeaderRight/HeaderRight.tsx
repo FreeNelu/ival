@@ -1,5 +1,4 @@
 import { useAuthenticator } from "@aws-amplify/ui-react-native";
-import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";
 import IconPressable from "../../components/IconPressable";
 import useColorScheme from "../../hooks/useColorScheme";
@@ -7,6 +6,7 @@ import styles from "./HeaderRight.styles";
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import Colors from "../../constants/Colors";
+import { Icon } from "@rneui/themed";
 
 const HeaderRight = () => {
   const { signOut } = useAuthenticator();
@@ -19,11 +19,11 @@ const HeaderRight = () => {
         title="Sign out"
         onPress={signOut}
         icon={
-          <MaterialIcons
-            name="logout"
+          <Icon
             size={32}
+            type={"material"}
             color={Colors[colorScheme].cardText}
-            style={{ marginRight: 24 }}
+            name="logout"
           />
         }
       />
@@ -36,11 +36,12 @@ const HeaderRight = () => {
         title="Help"
         onPress={() => navigation.navigate("Modal")}
         icon={
-          <MaterialIcons
-            name="info-outline"
+          <Icon
             size={32}
-            color={Colors[colorScheme].cardText}
+            type={"material"}
             style={{ marginRight: 24 }}
+            color={Colors[colorScheme].cardText}
+            name="info-outline"
           />
         }
       />

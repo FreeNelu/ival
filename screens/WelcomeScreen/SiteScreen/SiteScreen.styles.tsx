@@ -7,10 +7,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   CardContainer: {
-    flexWrap: "wrap",
-    flexDirection: "row",
-    justifyContent: "space-evenly",
+    margin: 32,
   },
+  SiteCard: {
+    margin: 8,
+  },
+  FabContainer: {
+    alignSelf: "flex-end",
+    flex: 0,
+    flexDirection: "row",
+    marginRight: 16,
+  },
+  Fab: { marginRight: 16 },
 });
 
 export default styles;
